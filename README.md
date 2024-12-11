@@ -49,3 +49,14 @@ In the terminal as well, with the name of the file you want to analyse
 
     pip install pre-commit
     pre-commit install
+
+
+
+### How to conduct the tests
+
+    pytest <testfile>.py
+
+Launch this command in the Python terminal with the appropriate file name
+The tests written there are not relevant in my use of this code (the functions are well known physical equations), but
+it could be relevant if the code was bound to evolve more and to be modified by other people. The unit tests would allow 
+to know the functions still work out.

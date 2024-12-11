@@ -1,5 +1,6 @@
 import pytest
-from calcul_hydraulique import reynolds, debit
+from calcul_hydraulique import reynolds, debit, incertitudes, dtml
+
 
 def test_reynolds():
     # Données d'entrée
@@ -32,3 +33,18 @@ def test_debit():
 
     # Assertion
     assert pytest.approx(result, rel=1e-5) == expected
+
+
+def test_incertitudes():
+    k = [1, 2, 3, 4, 5]  # Exemple de données
+
+    # Résultat attendu
+    moyenne = sum(k) / len(k)
+    ecart_type = (sum((x - moyenne) ** 2 for x in k) / len(k)) ** 0.5
+    expected_moyenne = moyenne
+    expected_erreur = ecart_type / (len(k) ** 0.5)
+
+    # Appel de la fonction et vérification
+    result_moyenne, result_erreur = incertitudes(k)
+    assert pytest.approx(result_moyenne, rel=1e-5) == expected_moyenne
+    assert pytest.approx(result_erreur, rel=1e-5) == expected_erreur
