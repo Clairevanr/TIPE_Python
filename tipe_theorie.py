@@ -9,26 +9,6 @@ from donnes import *
 This module allows me to treat theroritical calculation in order to confront it to my experimental results
 '''
 
-
-## Définition des listes utiles au tracé
-
-
-Liste_Ref=[mesure['Ref'] for mesure in Liste_donnees]
-
-Liste_Rec=[mesure['Rec'] for mesure in Liste_donnees]
-
-Liste_Dmc=[mesure['Dmc'] for mesure in Liste_donnees]
-
-Liste_rapport_debit=[mesure['Dmf']/mesure['Dmc'] for mesure in Liste_donnees]
-
-Liste_vitesse_froid=[mesure['Dmf']/(RHO*SF) for mesure in Liste_donnees]
-
-Liste_vitesse_chaud=[mesure['Dmc']/(RHO*SC) for mesure in Liste_donnees]
-
-Liste_Redh=[Redh(RHO, ETA, DC, Liste_Dmc[i]) for i in range(len(Liste_donnees))]
-
-
-
 ## Définitions des fonctions théoriques spécifiques 
 
 def Redh(rho,eta,d,v):
@@ -86,10 +66,24 @@ def hi_coeff(D,LAMDA,v,RHO,ETA,CP,L):
 
     return Nu*LAMDA/D 
         
-#On néglige l'encrassement
         
-def h_coeff(hf,hc,e, LAMDA):
-     return 1/((1/hc) + (E/LAMDA)  + (1/hf))
+
+## Définition des listes utiles au tracé
+
+
+Liste_Ref=[mesure['Ref'] for mesure in Liste_donnees]
+
+Liste_Rec=[mesure['Rec'] for mesure in Liste_donnees]
+
+Liste_Dmc=[mesure['Dmc'] for mesure in Liste_donnees]
+
+Liste_rapport_debit=[mesure['Dmf']/mesure['Dmc'] for mesure in Liste_donnees]
+
+Liste_vitesse_froid=[mesure['Dmf']/(RHO*SF) for mesure in Liste_donnees]
+
+Liste_vitesse_chaud=[mesure['Dmc']/(RHO*SC) for mesure in Liste_donnees]
+
+
 
 
 ## CALCUL DU NOMBRE DU h ##
@@ -99,9 +93,7 @@ Liste_hf=[ hi_coeff(DF, LAMDA, Liste_vitesse_froid[i],RHO, ETA, CP, L) for i in 
 Liste_hc=[ hi_coeff(DC, LAMDA, Liste_vitesse_chaud[i],RHO, ETA, CP, L) for i in range(len(Liste_donnees))]
 
 
-Liste_h=[ h_coeff(Liste_hf[i], Liste_hc[i], E,LAMDA) for i in range(len(Liste_donnees)) ]
-
-plt.plot(Liste_Dmc, Liste_h, 'o')
+plt.plot(Liste_Dmc,'o')
 plt.xlabel('Dmc')
 plt.ylabel('coeff échange convectif')
 plt.title('Théorie')
