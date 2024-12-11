@@ -18,7 +18,23 @@ This python project allowed me to process fluid dynamics practical and theoritic
 -Python interpreter
 -Really basic knowledge in Python (I was a beginner at that time)
 
-## How to clone the project :
+## How to clone the project 
 
-### Clone the Repository: Clone the project to your local machine:
+### Clone the Repository: Clone the project to your local machine
     git clone https://github.com/Clairevanr/TIPE_Python.git
+
+
+## How to conduct the static analysis 
+
+### Install 
+
+    pip install pylint
+
+Enter this command in a bash terminal.
+
+
+### Run 
+
+    pylint <nom_du_fichier>.py
+
+In the terminal as well, with the name of the file you want to analyse
