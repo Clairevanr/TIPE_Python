@@ -1,40 +1,40 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-rho=1000  #masse volumique 
-eta=0.001  #coefficient de viscositÃ©
-Df=15.5e-2  #diametre circulation froid
-Dc=12e-3  #diamètre circulation chaud
-lamda=0.6
-cp=4180
+RHO=1000  #masse volumique 
+ETA=0.001  #coefficient de viSCositÃ©
+DF=15.5e-2  #diametre circulation froid
+DC=12e-3  #diamètre circulation chaud
+LAMDA=0.6
+CP=4180
 L=1
-Sc=np.pi*(Dc/2)**2
-Sf=np.pi*(Df/2)**2
-e=2e-3
+SC=np.pi*(DC/2)**2
+SF=np.pi*(DF/2)**2
+E=2e-3
 
 
 # FONCTIONS
 
-def Reynolds(rho,eta,D,Dm):
+def Reynolds(RHO,ETA,D,Dm):
     S=np.pi*(D/2)**2
-    v=Dm/(rho*S)
-    return (rho*v*D)/eta
+    v=Dm/(RHO*S)
+    return (RHO*v*D)/ETA
 
 def debit(meau,temps):  
     debit=meau/temps
     return debit*10**-3 #kg/s
 
-def Nusselt(h,D,lamda):
-    return (h*D)/lamda
+def Nusselt(h,D,LAMDA):
+    return (h*D)/LAMDA
 
-def Prandtl(eta,cp,lamda):
-    return (eta*cp)/lamda
+def Prandtl(ETA,CP,LAMDA):
+    return (ETA*CP)/LAMDA
 
-def Redh(rho,eta,D,Dm):
+def Redh(RHO,ETA,D,Dm):
     S=np.pi*(D/2)**2
-    v=Dm/(rho*S)
+    v=Dm/(RHO*S)
     Dh=(4*(D/2)**2 * np.pi)/(2*np.pi*D/2)
-    return (rho*v*Dh)/eta
+    return (RHO*v*Dh)/ETA
 
 #STOCKAGE DES DONNEES:
     
@@ -105,47 +105,47 @@ Mesure_1_14['Dmc']=debit(224,5.63)
 #CALCUL DE REYNOLDS
 
 #SALVE 1
-Mesure_1_1['Ref']=Reynolds(rho, eta, Df, Mesure_1_1['Dmf'])
-Mesure_1_1['Rec']=Reynolds(rho, eta, Dc, Mesure_1_1['Dmc'])
+Mesure_1_1['Ref']=Reynolds(RHO, ETA, DF, Mesure_1_1['Dmf'])
+Mesure_1_1['Rec']=Reynolds(RHO, ETA, DC, Mesure_1_1['Dmc'])
 
-Mesure_1_2['Ref']=Reynolds(rho, eta, Df, Mesure_1_2['Dmf'])
-Mesure_1_2['Rec']=Reynolds(rho, eta, Dc, Mesure_1_2['Dmc'])
+Mesure_1_2['Ref']=Reynolds(RHO, ETA, DF, Mesure_1_2['Dmf'])
+Mesure_1_2['Rec']=Reynolds(RHO, ETA, DC, Mesure_1_2['Dmc'])
 
-Mesure_1_3['Ref']=Reynolds(rho, eta, Df, Mesure_1_3['Dmf'])
-Mesure_1_3['Rec']=Reynolds(rho, eta, Dc, Mesure_1_3['Dmc'])
+Mesure_1_3['Ref']=Reynolds(RHO, ETA, DF, Mesure_1_3['Dmf'])
+Mesure_1_3['Rec']=Reynolds(RHO, ETA, DC, Mesure_1_3['Dmc'])
 
-Mesure_1_4['Ref']=Reynolds(rho, eta, Df, Mesure_1_4['Dmf'])
-Mesure_1_4['Rec']=Reynolds(rho, eta, Dc, Mesure_1_4['Dmc'])
+Mesure_1_4['Ref']=Reynolds(RHO, ETA, DF, Mesure_1_4['Dmf'])
+Mesure_1_4['Rec']=Reynolds(RHO, ETA, DC, Mesure_1_4['Dmc'])
 
-Mesure_1_5['Ref']=Reynolds(rho, eta, Df, Mesure_1_5['Dmf'])
-Mesure_1_5['Rec']=Reynolds(rho, eta, Dc, Mesure_1_5['Dmc'])
+Mesure_1_5['Ref']=Reynolds(RHO, ETA, DF, Mesure_1_5['Dmf'])
+Mesure_1_5['Rec']=Reynolds(RHO, ETA, DC, Mesure_1_5['Dmc'])
 
-Mesure_1_6['Ref']=Reynolds(rho, eta, Df, Mesure_1_6['Dmf'])
-Mesure_1_6['Rec']=Reynolds(rho, eta, Dc, Mesure_1_6['Dmc'])
+Mesure_1_6['Ref']=Reynolds(RHO, ETA, DF, Mesure_1_6['Dmf'])
+Mesure_1_6['Rec']=Reynolds(RHO, ETA, DC, Mesure_1_6['Dmc'])
 
-Mesure_1_7['Ref']=Reynolds(rho, eta, Df, Mesure_1_7['Dmf'])
-Mesure_1_7['Rec']=Reynolds(rho, eta, Dc, Mesure_1_7['Dmc'])
+Mesure_1_7['Ref']=Reynolds(RHO, ETA, DF, Mesure_1_7['Dmf'])
+Mesure_1_7['Rec']=Reynolds(RHO, ETA, DC, Mesure_1_7['Dmc'])
 
-Mesure_1_8['Ref']=Reynolds(rho, eta, Df, Mesure_1_8['Dmf'])
-Mesure_1_8['Rec']=Reynolds(rho, eta, Dc, Mesure_1_8['Dmc'])
+Mesure_1_8['Ref']=Reynolds(RHO, ETA, DF, Mesure_1_8['Dmf'])
+Mesure_1_8['Rec']=Reynolds(RHO, ETA, DC, Mesure_1_8['Dmc'])
 
-Mesure_1_9['Ref']=Reynolds(rho, eta, Df, Mesure_1_9['Dmf'])
-Mesure_1_9['Rec']=Reynolds(rho, eta, Dc, Mesure_1_9['Dmc'])
+Mesure_1_9['Ref']=Reynolds(RHO, ETA, DF, Mesure_1_9['Dmf'])
+Mesure_1_9['Rec']=Reynolds(RHO, ETA, DC, Mesure_1_9['Dmc'])
 
-Mesure_1_10['Ref']=Reynolds(rho, eta, Df, Mesure_1_10['Dmf'])
-Mesure_1_10['Rec']=Reynolds(rho, eta, Dc, Mesure_1_10['Dmc'])
+Mesure_1_10['Ref']=Reynolds(RHO, ETA, DF, Mesure_1_10['Dmf'])
+Mesure_1_10['Rec']=Reynolds(RHO, ETA, DC, Mesure_1_10['Dmc'])
 
-Mesure_1_11['Ref']=Reynolds(rho, eta, Df, Mesure_1_11['Dmf'])
-Mesure_1_11['Rec']=Reynolds(rho, eta, Dc, Mesure_1_11['Dmc'])
+Mesure_1_11['Ref']=Reynolds(RHO, ETA, DF, Mesure_1_11['Dmf'])
+Mesure_1_11['Rec']=Reynolds(RHO, ETA, DC, Mesure_1_11['Dmc'])
 
-Mesure_1_12['Ref']=Reynolds(rho, eta, Df, Mesure_1_12['Dmf'])
-Mesure_1_12['Rec']=Reynolds(rho, eta, Dc, Mesure_1_12['Dmc'])
+Mesure_1_12['Ref']=Reynolds(RHO, ETA, DF, Mesure_1_12['Dmf'])
+Mesure_1_12['Rec']=Reynolds(RHO, ETA, DC, Mesure_1_12['Dmc'])
 
-Mesure_1_13['Ref']=Reynolds(rho, eta, Df, Mesure_1_13['Dmf'])
-Mesure_1_13['Rec']=Reynolds(rho, eta, Dc, Mesure_1_13['Dmc'])
+Mesure_1_13['Ref']=Reynolds(RHO, ETA, DF, Mesure_1_13['Dmf'])
+Mesure_1_13['Rec']=Reynolds(RHO, ETA, DC, Mesure_1_13['Dmc'])
 
-Mesure_1_14['Ref']=Reynolds(rho, eta, Df, Mesure_1_14['Dmf'])
-Mesure_1_14['Rec']=Reynolds(rho, eta, Dc, Mesure_1_14['Dmc'])
+Mesure_1_14['Ref']=Reynolds(RHO, ETA, DF, Mesure_1_14['Dmf'])
+Mesure_1_14['Rec']=Reynolds(RHO, ETA, DC, Mesure_1_14['Dmc'])
 
 
 Liste_donnees = [Mesure_1_1,Mesure_1_2, Mesure_1_3, Mesure_1_4, Mesure_1_10, Mesure_1_12, Mesure_1_13, Mesure_1_14]
@@ -159,25 +159,25 @@ Liste_Dmc=[mesure['Dmc'] for mesure in Liste_donnees]
 
 Liste_rapport_debit=[mesure['Dmf']/mesure['Dmc'] for mesure in Liste_donnees]
 
-Liste_vitesse_froid=[mesure['Dmf']/(rho*Sf) for mesure in Liste_donnees]
+Liste_vitesse_froid=[mesure['Dmf']/(RHO*SF) for mesure in Liste_donnees]
 
-Liste_vitesse_chaud=[mesure['Dmc']/(rho*Sc) for mesure in Liste_donnees]
+Liste_vitesse_chaud=[mesure['Dmc']/(RHO*SC) for mesure in Liste_donnees]
 
-Liste_Redh=[Redh(rho, eta, Dc, Liste_Dmc[i]) for i in range(len(Liste_donnees))]
+Liste_Redh=[Redh(RHO, ETA, DC, Liste_Dmc[i]) for i in range(len(Liste_donnees))]
 
-#CorrÃ©lation de Sieder et Tate: Ã©coulement laminaire
+#Correlation de Sieder et Tate: ecoulement laminaire
 def Sieder(Pr,Re,D,L):
     return 1.86*(Pr*Re)**(1/3)*(D/L)**(1/3)
 
 
 
-#CorrÃ©lation de Dittus-Boelter: Ã©coulement turbulent
+#CorrÃ©lation de Dittus-Boelter: ecoulement turbulent
 def Dittus(Re,Pr):
     return 0.023*Re**0.8*Pr**(1/3)
 
 
 
-#CorrÃ©lation de Hilpert: Ã©coulement autour du tube (C dÃ©pend de Re)
+#CorrÃ©lation de Hilpert: Ã©coulement autour du tube (C de©pend de Re)
 def Hilpert(Re,Pr):
     if Re>=0.4 and  Re<=4.0:
         m=0.33
@@ -198,9 +198,9 @@ def Hilpert(Re,Pr):
     return C*Re**m*Pr**(1/3)
  
     
-def hi_coeff(D,lamda,v,rho,eta,cp,L):
-    Re=Redh(rho,eta,D,v)
-    Pr=Prandtl(eta,cp,lamda)
+def hi_coeff(D,LAMDA,v,RHO,ETA,CP,L):
+    Re=Redh(RHO,ETA,D,v)
+    Pr=Prandtl(ETA,CP,LAMDA)
     
     #if Re*Pr*D/L >=10:
      #   Nu=Sieder(Pr,Re,D,L)
@@ -212,22 +212,22 @@ def hi_coeff(D,lamda,v,rho,eta,cp,L):
         Nu=Hilpert(Re,Pr)
         print('Hilpert')
 
-    return Nu*lamda/D 
+    return Nu*LAMDA/D 
         
 #On néglige l'encrassement
         
-def h_coeff(hf,hc,e, lamda):
-     return 1/((1/hc) + (e/lamda)  + (1/hf))
+def h_coeff(hf,hc,e, LAMDA):
+     return 1/((1/hc) + (E/LAMDA)  + (1/hf))
 
 
 ## CALCUL DU NOMBRE DU h ##
 
-Liste_hf=[ hi_coeff(Df, lamda, Liste_vitesse_froid[i],rho, eta, cp, L) for i in range(len(Liste_donnees))]
+Liste_hf=[ hi_coeff(DF, LAMDA, Liste_vitesse_froid[i],RHO, ETA, CP, L) for i in range(len(Liste_donnees))]
 
-Liste_hc=[ hi_coeff(Dc, lamda, Liste_vitesse_chaud[i],rho, eta, cp, L) for i in range(len(Liste_donnees))]
+Liste_hc=[ hi_coeff(DC, LAMDA, Liste_vitesse_chaud[i],RHO, ETA, CP, L) for i in range(len(Liste_donnees))]
 
 
-Liste_h=[ h_coeff(Liste_hf[i], Liste_hc[i], e,lamda) for i in range(len(Liste_donnees)) ]
+Liste_h=[ h_coeff(Liste_hf[i], Liste_hc[i], E,LAMDA) for i in range(len(Liste_donnees)) ]
 
 plt.plot(Liste_Dmc, Liste_h, 'o')
 plt.xlabel('Dmc')
