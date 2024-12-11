@@ -10,6 +10,22 @@ from constantes_physiques import *
 from donnes import *
 
 
+'''
+This module is dedicated to determine flow's nature for certain datas and to generate graphs related to the efficiency
+of the heat exchanger
+'''
+
+## Fonction utile pour le tracé de graphes
+
+def test_nature_color(Rec):
+    '''
+    This function is useful to add colors to the graphs
+    '''
+
+    if Rec>=2000:
+        return('red') # Turbulent
+    else:
+        return('green') # Laminaire
 
 # Configuration des logs
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')

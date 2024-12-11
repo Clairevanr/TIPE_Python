@@ -1,6 +1,11 @@
 from calcul_hydraulique import *
 from constantes_physiques import *
 
+'''
+This module stores the data collected  through the exeperiments and treat 
+them to obtain the Mesure._. dictionnaries
+'''
+
 
 #STOCKAGE DES DONNEES:
     

@@ -6,6 +6,10 @@ from calcul_hydraulique import *
 from constantes_physiques import *
 from donnes import *
 
+'''
+This module is made to test an equation I obtained thanks to an approximation. It allows me to verify its consistency
+'''
+
 
 ## Définition listes utiles au tracé des graphes
 

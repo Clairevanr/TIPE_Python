@@ -1,6 +1,11 @@
 import pytest
 from calcul_hydraulique import reynolds, debit, incertitudes, dtml
 
+'''
+This test module allow to test physical formulas related functions. I designed the test for some functions
+from the calcul_hydraulique module
+'''
+
 
 def test_reynolds():
     # Données d'entrée

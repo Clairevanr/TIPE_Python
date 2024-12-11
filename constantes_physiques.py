@@ -1,3 +1,6 @@
+'''
+This module provides essential physical constants
+'''
 
 ## Constantes physiques fixes
 import numpy as np
@@ -13,4 +16,6 @@ LC = 4 #Longueur système chaud
 SC = np.pi*(DC / 2)**2 #Surface arrivée système chaud
 SF = np.pi*(DF / 2)**2 #Surface arrivée système froid
 S = np.pi*2*(DC / 2)*LC #Surface cylindre
+
+L = 2 # Longueur totale
 
