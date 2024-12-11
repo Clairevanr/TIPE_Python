@@ -42,3 +42,10 @@ Enter this command in a bash terminal.
     pylint <nom_du_fichier>.py
 
 In the terminal as well, with the name of the file you want to analyse
+
+### Pre-Commit Hook for Pylint
+
+**Setup:**
+
+    pip install pre-commit
+    pre-commit install
